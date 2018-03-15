@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--<statusListener class="ch.qos.logback.core.status.NopStatusListener"/>-->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-5level] %logger{15} - %msg%n%rEx</pattern>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+
+    <!-- Enable Datastax Driver events -->
+    <logger name="com.datastax.driver" level="${log.datastax-driver:-WARN}" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Enable Datastax Driver events -->
+    <logger name="com.hatcherdev.AdvGraphPersonalization" level="${log.datastax-driver:-DEBUG}" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!--<logger name="com.datastax.driver.core.CodecRegistry" level="ERROR" additivity="false">-->
+        <!--<appender-ref ref="CONSOLE"/>-->
+    <!--</logger>-->
+
+    <!--<logger name="com.datastax.driver.core.Cluster" level="ERROR" additivity="false">-->
+        <!--<appender-ref ref="CONSOLE"/>-->
+    <!--</logger>-->
+
+    <!--<logger name="com.datastax.driver.core.Session" level="ERROR" additivity="false">-->
+        <!--<appender-ref ref="CONSOLE"/>-->
+    <!--</logger>-->
+
+    <!-- TRACE, DEBUG, INFO, WARNERROR -->
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
