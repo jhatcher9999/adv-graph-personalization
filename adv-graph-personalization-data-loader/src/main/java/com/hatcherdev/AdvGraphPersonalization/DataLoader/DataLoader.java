@@ -6,7 +6,6 @@ import com.datastax.driver.dse.*;
 import com.datastax.driver.dse.graph.*;
 import com.datastax.dse.graph.api.DseGraph;
 
-import org.apache.tinkerpop.gremlin.process.traversal.*;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.*;
 import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
@@ -33,19 +32,42 @@ public class DataLoader {
     private GraphTraversalSource g;
 
     private String _filePath;
+    private String _clusterNode;
 
-    DataLoader(String filePath){
-        connectCluster();
+    public DataLoader(String filePath, String clusterNode) {
+
         _filePath = filePath;
+        _clusterNode = clusterNode;
+
+        connectCluster();
+    }
+
+    public static void main(String[] args){
+
+        Logger logger = LoggerFactory.getLogger(DataLoader.class);
+
+        if (args.length != 2){
+            logger.error("You must specify the following arguments: the file path to process, a node in the cluster");
+        }
+
+        String filePath = args[0];
+        String clusterNode = args[1];
+
+        DataLoader dataLoader = new DataLoader(filePath, clusterNode);
+        dataLoader.run();
+
+        System.exit(0);
+
     }
 
     private void connectCluster(){
-        String host = "127.0.0.1";
         String graphName = "adv_graph_personalization";
 
         DseCluster dseCluster = DseCluster.builder()
-                .addContactPoint(host)
-                .withGraphOptions(new GraphOptions().setGraphName(graphName))
+                .addContactPoint(_clusterNode)
+                .withGraphOptions(new GraphOptions()
+                        .setGraphName(graphName)
+                        .setGraphSubProtocol(GraphProtocol.GRAPHSON_2_0))
                 .build();
 
         _dseSession = dseCluster.connect();
@@ -64,6 +86,8 @@ public class DataLoader {
         }
 
         Integer lineCounter = 0;
+
+        logger.info("Starting to read from file...");
 
         try {
             for (String line = br != null ? br.readLine() : null; line != null; line = br.readLine()) {
@@ -146,18 +170,11 @@ public class DataLoader {
     private void insertVerticesAndEdges(Transaction transaction)
     {
 
-
-        GraphTraversal<Vertex, Vertex> addCustomerVertexTraversal =
+        GraphTraversal<Vertex, Edge> traversal =
                 g
                     .addV("customer")
                         .property("customer_id", transaction.getCustomerID())
-                ;
-
-        GraphStatement addCustomerVertexStatement = DseGraph.statementFromTraversal(addCustomerVertexTraversal);
-        _dseSession.executeGraph(addCustomerVertexStatement);
-
-        GraphTraversal<Vertex, Vertex> addProductVertexTraversal =
-                g
+                        .as("customer")
                     .addV("product")
                         .property("chain_id", transaction.getChainID())
                         .property("company_id", transaction.getCompanyID())
@@ -166,24 +183,6 @@ public class DataLoader {
                         .property("product_measure", transaction.getProductMeasure())
                         .property("category_id", transaction.getCategoryID())
                         .property("department_id", transaction.getDepartmentID())
-                ;
-
-        GraphStatement addProductVertexStatement = DseGraph.statementFromTraversal(addProductVertexTraversal);
-        _dseSession.executeGraph(addProductVertexStatement);
-
-        GraphTraversal<Vertex, Edge> addPurchasesEdgeTraversal =
-                g
-                    .V()
-                        .hasLabel("customer")
-                        .has("customer_id", transaction.getCustomerID())
-                        .as("customer")
-                    .V()
-                        .hasLabel("product")
-                        .has("chain_id", transaction.getChainID())
-                        .has("company_id", transaction.getCompanyID())
-                        .has("brand_id", transaction.getBrandID())
-                        .has("product_size", transaction.getProductSize())
-                        .has("product_measure", transaction.getProductMeasure())
                         .as("product")
                     .addE("purchases")
                         .property("date", transaction.getDate())
@@ -193,8 +192,8 @@ public class DataLoader {
                         .to("product")
                 ;
 
-        GraphStatement addPurchasesEdgeStatement = DseGraph.statementFromTraversal(addPurchasesEdgeTraversal);
-        _dseSession.executeGraph(addPurchasesEdgeStatement);
+        GraphStatement statement = DseGraph.statementFromTraversal(traversal);
+        _dseSession.executeGraph(statement);
 
     }
 

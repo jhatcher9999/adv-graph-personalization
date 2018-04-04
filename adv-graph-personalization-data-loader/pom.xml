@@ -13,7 +13,7 @@
         <dependency>
             <groupId>com.datastax.dse</groupId>
             <artifactId>dse-java-driver-graph</artifactId>
-            <version>1.2.5</version>
+            <version>1.4.1</version>
         </dependency>
 
         <dependency>
@@ -48,7 +48,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        com.hatcherdev.AdvGraphPersonalization.DataLoader.StartLoader
+                                        com.hatcherdev.AdvGraphPersonalization.DataLoader.DataLoader
                                     </mainClass>
                                 </manifest>
                             </archive>

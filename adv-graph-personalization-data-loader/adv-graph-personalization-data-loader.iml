@@ -11,15 +11,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.datastax.dse:dse-java-driver-graph:1.2.5" level="project" />
-    <orderEntry type="library" name="Maven: com.datastax.dse:dse-java-driver-core:1.2.5" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.0.44.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.0.44.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.44.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.0.44.Final" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.0.44.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.datastax.dse:dse-java-driver-graph:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: com.datastax.dse:dse-java-driver-core:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.0.47.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.0.47.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.47.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.0.47.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.0.47.Final" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-core:3.1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-core:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-ffi:2.0.7" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jffi:1.2.10" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.jnr:jffi:native:1.2.10" level="project" />
@@ -31,9 +31,7 @@
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-x86asm:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-posix:3.0.27" level="project" />
     <orderEntry type="library" name="Maven: com.github.jnr:jnr-constants:0.9.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-groovy:3.2.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-core:3.2.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-shaded:3.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-core:3.2.5" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.10" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.15" level="project" />
@@ -41,21 +39,25 @@
     <orderEntry type="library" name="Maven: com.carrotsearch:hppc:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: com.jcabi:jcabi-manifests:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.jcabi:jcabi-log:0.14" level="project" />
+    <orderEntry type="library" name="Maven: com.squareup:javapoet:1.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-shaded:3.2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tinkerpop:gremlin-groovy:3.2.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ivy:ivy:2.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:indy:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-groovysh:indy:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-console:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-templates:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-xml:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-swing:2.4.8" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:indy:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-groovysh:indy:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-console:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-templates:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-xml:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-swing:2.4.11" level="project" />
     <orderEntry type="library" name="Maven: jline:jline:2.12" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-json:indy:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-jsr223:indy:2.4.8" level="project" />
-    <orderEntry type="library" name="Maven: com.github.jeremyh:jBCrypt:jbcrypt-0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-json:indy:2.4.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-jsr223:indy:2.4.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tinkerpop:tinkergraph-gremlin:3.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.mindrot:jbcrypt:0.4" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tinkerpop:tinkergraph-gremlin:3.2.5" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.0.13" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.0.13" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
