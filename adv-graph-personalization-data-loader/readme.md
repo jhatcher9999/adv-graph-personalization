@@ -54,15 +54,19 @@ schema.edgeLabel("purchases")
 
 It reads data from the text file, loads that data into a POJO, then uses a Fluent API Gremlin traversal to load the data into the Graph.
 
-To execute the project:
+To execute the code:
 
+- Download the dataset from the Kaggle link above.  Copy and unzip the transactions.csv file to a server in the DSE Graph cluster.
 - Build the project by running `mvn clean compile`
 - Create a jar by running `mvn package`.  This will create a jar in the target directory.
+- Copy the jar to the same node where the transactions.csv file resides.  Grant execute permissions on the jar.
 - Execute the jar by running `java -jar /path/to/jar/adv-graph-personalization-data-loader-1.0-SNAPSHOT-jar-with-dependencies.jar /path/to/transactions.csv 127.0.0.1` where `127.0.0.1` represents the address of a node in the DSE cluster
 
-In my experience on a 3-node cluster with very modest hardware running DSE 5.1.6, it will load around 200 records per second.
+In my experience on a 3-node cluster with very modest hardware running DSE 5.1.6, it will load around 200 records per second.  I believe the program is bottlenecked on the client side, so a simple way to improve throughput would be to break the transactions.csv file into multiple files and simultaneously run multiple instances of the load program against these smaller files.
 
 Some ideas for future enhancements:
 
 - Make the program multi-threaded to improve throughput
 - Make the Gremlin traversal smart enough to know whether the vertex or edge already exists and not re-load the entity if it exists.
+- Move the parsing logic to the Transaction class
+- Add unit tests

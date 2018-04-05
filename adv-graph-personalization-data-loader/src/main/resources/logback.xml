@@ -20,17 +20,17 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
-    <!--<logger name="com.datastax.driver.core.CodecRegistry" level="ERROR" additivity="false">-->
-        <!--<appender-ref ref="CONSOLE"/>-->
-    <!--</logger>-->
+    <logger name="com.datastax.driver.core.CodecRegistry" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
 
-    <!--<logger name="com.datastax.driver.core.Cluster" level="ERROR" additivity="false">-->
-        <!--<appender-ref ref="CONSOLE"/>-->
-    <!--</logger>-->
+    <logger name="com.datastax.driver.core.Cluster" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
 
-    <!--<logger name="com.datastax.driver.core.Session" level="ERROR" additivity="false">-->
-        <!--<appender-ref ref="CONSOLE"/>-->
-    <!--</logger>-->
+    <logger name="com.datastax.driver.core.Session" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
 
     <!-- TRACE, DEBUG, INFO, WARNERROR -->
 
